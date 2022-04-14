@@ -1,0 +1,12 @@
+Desenvolver uma página utilizando Nuxt e TailwindCSS, para visualizar cotações de
+cripto ativos.
+
+● Ao abrir a página, uma lista de ativos e suas cotações deve ser apresentada. 
+Esta lista deve inicialmente conter o bitcoin. 
+Além da lista, deve existir um formulário, contendo um input text e um botão, que serão usados para adicionar novos cripto ativos à lista.
+A cotação dos itens da lista deve ser atualizada automaticamente a cada 30 segundos.
+● As cotações funcionam com um par de moedas, por exemplo, a cotação do dólar/real
+está 4,98 e a cotação do bitcoin/dólar está 41.3000. As cotações dos cripto ativos
+nesta página devem usar o dólar(USD) como par.
+● Para consultar as cotações, sugerimos a api https://www.coinapi.io/
+● Ao finalizar, disponibilizar o código no GitHub.
