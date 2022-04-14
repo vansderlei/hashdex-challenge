@@ -47,7 +47,7 @@ export default {
 				if (alreadyIncludedAsset.name.toLowerCase() === this.searchValue.toLowerCase()) isAlreadyIncluded = true
 			})
 			if(isAlreadyIncluded) return alert ("Asset already included")
-			const findedAsset = this.allAssets.find(asset => asset.name.toLowerCase() === this.searchValue.toLowerCase())
+			const findedAsset = this.allAssets.find(asset => asset.name.toLowerCase() === this.searchValue.toLowerCase() && asset.type_is_crypto === 1)
 			findedAsset ? this.assets.push(findedAsset) : alert("Asset not found")
 		}
 	}
