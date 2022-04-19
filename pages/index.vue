@@ -17,7 +17,7 @@ import Title from "../components/Title"
 import Card from "../components/Card"
 import Button from "../components/Button"
 import Loader from "../components/Loader"
-import { getAssets } from "../utils/assets"
+import { getAllAssets, getFilteredAsset } from "../utils/assets"
 export default {
 	components:{
 		Title, Card, Button, Loader
@@ -36,13 +36,18 @@ export default {
 		await this.setAllAssets(true)
 		if(this.allAssets.error) return alert ('ERROR: Too many requests (API)')
 		this.getBitcoin()
-		setInterval(async () => { await this.setAllAssets(false) }, this.refreshInterval);
+		setInterval(async () => { this.refreshCurrentAssets() }, this.refreshInterval);
 	},
 	methods:{
 		async setAllAssets(isLoading){
 			this.isLoading = isLoading
-			this.allAssets = await getAssets()
+			this.allAssets = await getAllAssets()
 			this.isLoading = false
+		},
+		refreshCurrentAssets(){
+			const refreshAssets = []
+			this.assets.forEach(asset => refreshAssets.push(getFilteredAsset(asset.asset_id)))
+			this.assets = refreshAssets
 		},
 		getBitcoin(){
 			this.assets.push(this.allAssets.find(asset => asset.asset_id === 'BTCS'))
